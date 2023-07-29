@@ -15,6 +15,9 @@ namespace VMPilot::Crypto
 
     std::vector<uint8_t> SHA256(const std::vector<uint8_t> &data,
                                 const std::vector<uint8_t> &salt) noexcept;
+
+    std::vector<uint8_t> BLAKE3(const std::vector<uint8_t> &data,
+                                const std::vector<uint8_t> &salt) noexcept;
 }
 
 #endif

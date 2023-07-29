@@ -61,6 +61,9 @@ add_blake3()
 
 include_directories(${INCLUDE_DIRS})
 
+# Add BLAKE3 source file
+set(SOURCE_FILES ${SOURCE_FILES} blake3.cpp)
+
 # Add the library static linked to the source file
 add_library(crypto STATIC ${SOURCE_FILES})
 target_link_libraries(crypto ${THIRD_PARTY_LIBS})
