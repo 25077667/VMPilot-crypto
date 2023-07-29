@@ -43,6 +43,8 @@ cmake .. -DCRYPTO_LIB=Botan -G Ninja -DCMAKE_LINKER=mold
 ninja
 ```
 
+And the output library file will be in `build/`.
+
 # License
 Apache License 2.0
 
