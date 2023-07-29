@@ -59,7 +59,7 @@ endif()
 
 add_blake3()
 
-include_directories(${INCLUDE_DIRS} ${THIRD_PARTY_LIBS})
+include_directories(${INCLUDE_DIRS})
 
 # Add the library static linked to the source file
 add_library(crypto STATIC ${SOURCE_FILES})
