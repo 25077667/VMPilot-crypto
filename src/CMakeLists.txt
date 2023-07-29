@@ -18,8 +18,6 @@ function(add_blake3)
 endfunction(add_blake3)
 
 function(add_botan)
-    # print compiler name and version
-    message(STATUS "Compiler: ${CMAKE_CXX_COMPILER_ID} ${CMAKE_CXX_COMPILER_VERSION}")
     set(SOURCE_FILES botan.cpp PARENT_SCOPE)
     # Add botan as a dependency
     CPMAddPackage(
@@ -38,7 +36,7 @@ function(add_botan)
 endfunction(add_botan)
 
 function(add_openssl)
-    find_package(OpenSSL STATIC REQUIRED)
+    find_package(OpenSSL REQUIRED)
     set(SOURCE_FILES openssl.cpp PARENT_SCOPE)
     set(INCLUDE_DIRS ${INCLUDE_DIRS} ${OPENSSL_INCLUDE_DIR} PARENT_SCOPE)
     set(THIRD_PARTY_LIBS ${THIRD_PARTY_LIBS} ${OPENSSL_LIBRARIES} PARENT_SCOPE)

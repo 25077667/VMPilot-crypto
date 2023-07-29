@@ -45,3 +45,10 @@ ninja
 
 # License
 Apache License 2.0
+
+# Notes
+
+## OpenSSL
+If you are using the OpenSSL in your Apple device, but stuck with the find package error,
+you could refer to https://stackoverflow.com/a/69268455 for possible solutions.
+
