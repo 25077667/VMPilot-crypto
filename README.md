@@ -36,16 +36,10 @@ Please refer to the [release page](https://github.com/25077667/VMPilot-crypto/re
         - `lld`
         - `gold`
 
-- `CMAKE_BUILD_TYPE`:
-    - Description: The build type. Default is `Release`. Other options are `Debug`.
-    - Options:
-        - `Release` (default)
-        - `Debug`
-
 ### Example
 ```bash
 mkdir build && cd build
-cmake .. -DCMAKE_BUILD_TYPE=Release -DCRYPTO_LIB=Botan -G Ninja -DCMAKE_LINKER=mold
+cmake .. -DCRYPTO_LIB=Botan -G Ninja -DCMAKE_LINKER=mold
 ninja
 ```
 
