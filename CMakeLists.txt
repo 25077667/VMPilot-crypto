@@ -13,11 +13,11 @@ set(CMAKE_LINKER "ld" CACHE STRING "The linker")
 set_property(CACHE CMAKE_LINKER PROPERTY STRINGS "ld" "mold" "lld" "gold")
 
 if (CMAKE_CXX_COMPILER_ID MATCHES "GNU" OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-    add_compile_options(-Wall -Wextra -Wpedantic -Werror -O0 -g)
+    add_compile_options(-Wall -Wextra -Wpedantic -Werror -O0 -g --static)
 endif ()
 
 if (CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
-    add_compile_options(/W4 /WX /Od /Zi)
+    add_compile_options(/W4 /WX /Od /Zi /EHsc /MTd)
 endif ()
 
 include(cmake/CPM.cmake)

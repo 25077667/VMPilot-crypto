@@ -54,3 +54,13 @@ Apache License 2.0
 If you are using the OpenSSL in your Apple device, but stuck with the find package error,
 you could refer to https://stackoverflow.com/a/69268455 for possible solutions.
 
+## Botan with AppleClang
+If it says something like this:
+```
+XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/stdlib.h:93:15: fatal error: 'stdlib.h' file not found
+```
+You could add a cmake option to specify the C++ compiler: 
+```cmake
+-DCXX=clang++
+```
+so that it will use the clang++ instead of the AppleClang.

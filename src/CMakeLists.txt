@@ -66,7 +66,7 @@ set(SOURCE_FILES ${SOURCE_FILES} blake3.cpp)
 
 # Add the library static linked to the source file
 add_library(crypto STATIC ${SOURCE_FILES})
-target_link_libraries(crypto ${THIRD_PARTY_LIBS})
+target_link_libraries(crypto STATIC ${THIRD_PARTY_LIBS})
 
 # Copy crypto library to CMAKE_BINARY_DIR
 add_custom_command(TARGET crypto POST_BUILD
