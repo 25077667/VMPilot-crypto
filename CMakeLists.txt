@@ -24,3 +24,6 @@ include(cmake/CPM.cmake)
 
 # Add subdirectories
 add_subdirectory(src)
+
+# Add test
+add_subdirectory(test)
