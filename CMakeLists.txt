@@ -27,3 +27,6 @@ add_subdirectory(src)
 
 # Add test
 add_subdirectory(test)
+
+# Expose include directory to other subprojects through cache variable
+set(CRYPTO_INCLUDE_DIR ${CRYPTO_INCLUDE_DIRS} CACHE INTERNAL "Directory of crypto include files")

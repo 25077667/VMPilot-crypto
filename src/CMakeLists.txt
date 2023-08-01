@@ -81,3 +81,6 @@ target_link_libraries(crypto PRIVATE ${THIRD_PARTY_LIBS})
 add_custom_command(TARGET crypto POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:crypto> ${CMAKE_BINARY_DIR}
 )
+
+# Expose include directory to parent scope
+set(CRYPTO_INCLUDE_DIRS ${INCLUDE_DIRS} PARENT_SCOPE)
