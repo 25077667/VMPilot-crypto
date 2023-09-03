@@ -11,7 +11,11 @@ function(add_blake3)
         GIT_TAG 1.4.0
     )
     set(BLAKE3_INCLUDE_DIR ${CMAKE_BINARY_DIR}/_deps/blake3-src/c/)
-    set(BLAKE3_LIBRARY ${CMAKE_BINARY_DIR}/_deps/blake3-build/libblake3.a)
+    if(MSVC)
+        set(BLAKE3_LIBRARY ${CMAKE_BINARY_DIR}/_deps/blake3-build/blake3.lib)
+    else()
+        set(BLAKE3_LIBRARY ${CMAKE_BINARY_DIR}/_deps/blake3-build/libblake3.a)
+    endif()
 
     # Instead of add_library, use add_library with IMPORTED STATIC option to specify static linking.
     add_library(black3_staticlib STATIC IMPORTED)
@@ -31,7 +35,11 @@ function(add_botan)
     )
     # Set botan include directory variable, link botan library
     set(BOTAN_INCLUDE_DIR ${CMAKE_BINARY_DIR}/_deps/botan-src/build/include/)
-    set(BOTAN_LIBRARY ${CMAKE_BINARY_DIR}/_deps/botan-src/libbotan-3.a)
+    if (MSVC)
+        set(BOTAN_LIBRARY ${CMAKE_BINARY_DIR}/_deps/botan-src/botan.lib)
+    else()
+        set(BOTAN_LIBRARY ${CMAKE_BINARY_DIR}/_deps/botan-src/libbotan-3.a)
+    endif()
 
     # Instead of add_library, use add_library with IMPORTED STATIC option to specify static linking.
     add_library(botan_staticlib STATIC IMPORTED)
