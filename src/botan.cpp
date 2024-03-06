@@ -16,7 +16,12 @@ std::vector<uint8_t> VMPilot::Crypto::Encrypt_AES_256_CBC_PKCS7(
     Botan::secure_vector<uint8_t> encrypted_data(data.size());
     cipher->finish(encrypted_data, encrypted_data.size());
 
-    return *reinterpret_cast<std::vector<uint8_t> *>(&encrypted_data);
+    std::vector<uint8_t> result;
+    result.reserve(encrypted_data.size());
+    std::copy(encrypted_data.begin(), encrypted_data.end(),
+              std::back_inserter(result));
+
+    return result;
 }
 
 std::vector<uint8_t> VMPilot::Crypto::Decrypt_AES_256_CBC_PKCS7(
@@ -31,7 +36,12 @@ std::vector<uint8_t> VMPilot::Crypto::Decrypt_AES_256_CBC_PKCS7(
     Botan::secure_vector<uint8_t> decrypted_data(data.size());
     cipher->finish(decrypted_data, decrypted_data.size());
 
-    return *reinterpret_cast<std::vector<uint8_t> *>(&decrypted_data);
+    std::vector<uint8_t> result;
+    result.reserve(decrypted_data.size());
+    std::copy(decrypted_data.begin(), decrypted_data.end(),
+              std::back_inserter(result));
+
+    return result;
 }
 
 std::vector<uint8_t> VMPilot::Crypto::SHA256(
@@ -43,5 +53,9 @@ std::vector<uint8_t> VMPilot::Crypto::SHA256(
     hash_fn->update(salt);
     auto hash_vec = hash_fn->final();
 
-    return *reinterpret_cast<std::vector<uint8_t> *>(&hash_vec);
+    std::vector<uint8_t> result;
+    result.reserve(hash_vec.size());
+    std::copy(hash_vec.begin(), hash_vec.end(), std::back_inserter(result));
+
+    return result;
 }
